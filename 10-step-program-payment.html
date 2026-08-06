@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Step Program — Secure Your Seat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0C0B08;
+    --panel:#17150F;
+    --panel-2:#1D1B13;
+    --line:#332F22;
+    --orange:#E08A2C;
+    --orange-deep:#B5651D;
+    --olive:#4A4A38;
+    --off-white:#EDE7DA;
+    --muted:#9C9686;
+    --green:#5FA867;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--black);
+    background-image:
+      radial-gradient(ellipse at top, rgba(224,138,44,0.06), transparent 60%);
+    color:var(--off-white);
+    font-family:'Barlow',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Bebas Neue',sans-serif;
+    letter-spacing:0.03em;
+    font-weight:400;
+    color:var(--off-white);
+  }
+  .mono{font-family:'DM Mono',monospace;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  header.top{
+    border-bottom:1px solid var(--line);
+    padding:18px 0;
+    background:#0A0906;
+  }
+  .top-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .brand{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.14em;color:var(--orange);}
+  .brand span{color:var(--muted);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.05em;margin-left:10px;}
+  .stamp{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    color:var(--green);
+    border:1px solid var(--green);
+    padding:5px 10px;
+    border-radius:2px;
+    transform:rotate(-2deg);
+  }
+
+  .hero{
+    padding:56px 0 32px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    color:var(--orange);
+    text-transform:uppercase;
+  }
+  .hero h1{font-size:50px;margin:14px 0 4px;line-height:0.97;}
+  .hero h1 em{font-style:normal;color:var(--orange);}
+  .hero p.sub{color:var(--muted);max-width:520px;margin:14px auto 0;font-size:16px;}
+
+  .brief{
+    margin:34px auto 0;
+    max-width:600px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    text-align:left;
+    overflow:hidden;
+  }
+  .brief-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 22px;background:var(--panel-2);border-bottom:1px solid var(--line);
+  }
+  .brief-head .l{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+  .brief-head .r{font-family:'DM Mono',monospace;font-size:11px;color:var(--orange);}
+  .brief-body{padding:20px 22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  .brief-item .k{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
+  .brief-item .v{font-family:'Bebas Neue',sans-serif;font-size:22px;margin-top:2px;}
+
+  section.block{padding:48px 0;border-bottom:1px solid var(--line);}
+  section.block:last-of-type{border-bottom:none;}
+  .kicker{font-family:'DM Mono',monospace;font-size:11px;color:var(--orange);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
+  h2{font-size:30px;margin:0 0 18px;}
+  p{margin:0 0 14px;color:var(--off-white);}
+  p.lead{font-size:17px;}
+
+  /* payment options */
+  .pay-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:22px 24px;
+    margin-bottom:18px;
+  }
+  .pay-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:10px;}
+  .pay-name{font-family:'Bebas Neue',sans-serif;font-size:24px;}
+  .pay-discount{
+    font-family:'DM Mono',monospace;
+    font-size:12px;
+    color:var(--black);
+    background:var(--orange);
+    padding:4px 10px;
+    border-radius:20px;
+    white-space:nowrap;
+    height:fit-content;
+  }
+  .pay-price{
+    font-family:'DM Mono',monospace;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:12px;
+  }
+  .pay-price .now{color:var(--green);font-size:16px;}
+  .pay-price .was{text-decoration:line-through;color:var(--muted);margin-right:8px;}
+  .btn{
+    display:inline-block;
+    font-family:'DM Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.05em;
+    color:var(--black);
+    background:var(--orange);
+    padding:11px 20px;
+    border-radius:2px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    transition:background 0.15s ease;
+  }
+  .btn:hover{background:#f0a04c;}
+  .btn.ghost{
+    background:transparent;
+    color:var(--orange);
+    border:1px solid var(--orange-deep);
+  }
+  .btn.ghost:hover{background:rgba(224,138,44,0.1);}
+
+  /* crypto addresses */
+  .addr-row{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:12px 14px;
+    margin-top:10px;
+  }
+  .addr-row .meta{min-width:70px;}
+  .addr-row .meta .net{font-family:'DM Mono',monospace;font-size:12px;color:var(--orange);letter-spacing:0.05em;}
+  .addr-row .addr{
+    font-family:'DM Mono',monospace;
+    font-size:12px;
+    color:var(--off-white);
+    word-break:break-all;
+    flex:1;
+  }
+  .copy-btn{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    background:transparent;
+    border:1px solid var(--line);
+    padding:6px 10px;
+    border-radius:2px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:all 0.15s ease;
+  }
+  .copy-btn:hover{border-color:var(--orange);color:var(--orange);}
+  .copy-btn.copied{color:var(--green);border-color:var(--green);}
+
+  .note{
+    font-family:'DM Mono',monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    margin-top:14px;
+    line-height:1.6;
+  }
+  .note strong{color:var(--off-white);}
+
+  footer.nav{padding:36px 0 60px;text-align:center;}
+  footer.nav p{color:var(--muted);font-size:13px;}
+  footer.nav .signoff{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:20px;
+    letter-spacing:0.06em;
+    color:var(--orange);
+    margin-top:6px;
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <div class="brand">BLOCK WALL STREET<span>10 STEP PROGRAM</span></div>
+    <div class="stamp">RSVP CONFIRMED</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Secure Your Seat</div>
+    <h1>You're on the <em>list.</em><br>Now lock in your spot.</h1>
+    <p class="sub">Your RSVP holds your place — payment confirms it. Spaces in the 10 Step Program to On-Chain Wealth are limited.</p>
+
+    <div class="brief">
+      <div class="brief-head">
+        <div class="l">Program Brief</div>
+        <div class="r">4 WEEKS / 10 STEPS</div>
+      </div>
+      <div class="brief-body">
+        <div class="brief-item">
+          <div class="k">Program</div>
+          <div class="v">On-Chain Wealth</div>
+        </div>
+        <div class="brief-item">
+          <div class="k">Duration</div>
+          <div class="v">4 Weeks</div>
+        </div>
+        <div class="brief-item">
+          <div class="k">Full Price</div>
+          <div class="v">$650</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="kicker">Choose Your Route</div>
+    <h2>Three ways to pay</h2>
+    <p class="lead">Pick the option that works for you. Chime and crypto payments come with a built-in discount for skipping the card fees.</p>
+
+    <!-- Stripe -->
+    <div class="pay-card">
+      <div class="pay-head">
+        <div class="pay-name">Card / Stripe</div>
+      </div>
+      <div class="pay-price"><span class="now">$650.00</span></div>
+      <a class="btn" href="https://buy.stripe.com/00w3cx0fe7CL5b02IM2sM01" target="_blank" rel="noopener">Pay with Card →</a>
+    </div>
+
+    <!-- Chime -->
+    <div class="pay-card">
+      <div class="pay-head">
+        <div class="pay-name">Chime (P2P)</div>
+        <div class="pay-discount">10% OFF</div>
+      </div>
+      <div class="pay-price"><span class="was">$650.00</span><span class="now">$585.00</span></div>
+      <a class="btn ghost" href="https://app.chime.com/link/qr?u=Amir-Hodari-el" target="_blank" rel="noopener">Open Chime →</a>
+      <p class="note">Send $585 via Chime P2P and note "10 Step Program" in the memo so we can match your payment to your RSVP.</p>
+    </div>
+
+    <!-- Crypto -->
+    <div class="pay-card">
+      <div class="pay-head">
+        <div class="pay-name">Crypto</div>
+        <div class="pay-discount">15% OFF</div>
+      </div>
+      <div class="pay-price"><span class="was">$650.00</span><span class="now">$552.50</span></div>
+
+      <div class="addr-row">
+        <div class="meta"><div class="net">SOL</div></div>
+        <div class="addr" id="addr-sol">HjUtHhcpLc9a5yAAAeGzTaidmgNh6CL3PNLE6TTLYXEV</div>
+        <button class="copy-btn" onclick="copyAddr('addr-sol', this)">Copy</button>
+      </div>
+      <div class="addr-row">
+        <div class="meta"><div class="net">EVM</div></div>
+        <div class="addr" id="addr-evm">0x5FC836a0518973D7FE20081F7b19EE207E6b324C</div>
+        <button class="copy-btn" onclick="copyAddr('addr-evm', this)">Copy</button>
+      </div>
+      <div class="addr-row">
+        <div class="meta"><div class="net">BTC</div></div>
+        <div class="addr" id="addr-btc">bc1qayrmw6xnljvfe4kk7k740tzh55smww3mx0u7e8</div>
+        <button class="copy-btn" onclick="copyAddr('addr-btc', this)">Copy</button>
+      </div>
+      <p class="note"><strong>EVM address works across ETH, Base, Polygon, Avalanche, and Robinhood Chain.</strong> Send the equivalent of $552.50 at time of transfer, and forward your transaction hash so we can confirm your seat.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="nav">
+  <div class="wrap">
+    <p>Questions about payment or your spot? Reply to your RSVP confirmation email.</p>
+    <div class="signoff">THE BITCOIN ARMY BUILDS.</div>
+  </div>
+</footer>
+
+<script>
+  function copyAddr(id, btn){
+    const text = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const original = btn.textContent;
+      btn.textContent = 'Copied';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('copied');
+      }, 1800);
+    });
+  }
+</script>
+
+</body>
+</html>
