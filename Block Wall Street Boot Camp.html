@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitcoin Army — 10 Step Program to On-Chain Wealth | RSVP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black: #0b0a08;
+    --panel: #14120e;
+    --panel-2: #1b1812;
+    --gold: #c9861f;
+    --gold-bright: #e8a13a;
+    --bone: #d8d2c4;
+    --bone-dim: #8f8878;
+    --line: #3a3427;
+    --olive: #2c2a1f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background: var(--black);
+    background-image:
+      radial-gradient(ellipse at 50% 0%, #1f1b12 0%, #0b0a08 60%),
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 2px, transparent 2px, transparent 6px);
+    color: var(--bone);
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding: 48px 20px 80px;
+  }
+
+  .eyebrow-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom: 18px;
+  }
+  .eyebrow-row .rank{
+    color: var(--gold);
+    font-family:'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    border: 1px solid var(--line);
+    padding: 5px 10px;
+  }
+  .badge{
+    width:34px; height:34px;
+    border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, var(--gold-bright), var(--gold) 60%, #7a5514 100%);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Bebas Neue'; font-size:20px; color:#1b1400;
+    box-shadow: 0 0 0 2px var(--black), 0 0 0 3px var(--gold);
+  }
+
+  h1.brand{
+    font-family:'Bebas Neue', sans-serif;
+    font-size: clamp(38px, 7vw, 64px);
+    letter-spacing: 4px;
+    color: var(--bone);
+    text-align:center;
+    line-height: 0.95;
+  }
+  h1.brand span{ color: var(--gold-bright); }
+
+  .tagline{
+    font-family:'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--bone-dim);
+    text-transform: uppercase;
+    margin-top: 8px;
+    text-align:center;
+  }
+
+  .divider{
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 28px 0;
+  }
+
+  .headline-card{
+    max-width: 720px;
+    text-align:center;
+  }
+  .headline-card h2{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size: clamp(24px, 4vw, 34px);
+    color: var(--bone);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height:1.2;
+  }
+  .headline-card .program{
+    font-family:'Bebas Neue', sans-serif;
+    color: var(--gold-bright);
+    font-size: clamp(30px, 5.5vw, 46px);
+    letter-spacing: 2px;
+    margin: 6px 0 14px;
+  }
+  .headline-card p{
+    color: var(--bone-dim);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .headline-card p strong{ color: var(--gold); font-weight:600; }
+
+  .class-date{
+    margin: 30px 0;
+    border: 1px solid var(--gold);
+    background: linear-gradient(180deg, rgba(201,134,31,0.08), rgba(201,134,31,0.02));
+    padding: 16px 30px;
+    text-align:center;
+  }
+  .class-date .label{
+    font-family:'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--bone-dim);
+    text-transform:uppercase;
+  }
+  .class-date .value{
+    font-family:'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: var(--gold-bright);
+    margin-top: 4px;
+  }
+  .class-date .sub{
+    font-family:'Barlow', sans-serif;
+    font-size: 12px;
+    color: var(--bone-dim);
+    margin-top: 6px;
+  }
+
+  .steps{
+    display:grid;
+    grid-template-columns: repeat(5, minmax(0,1fr));
+    gap: 10px;
+    max-width: 900px;
+    width: 100%;
+    margin: 10px 0 40px;
+  }
+  .step{
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: 12px 6px;
+    text-align:center;
+  }
+  .step .num{
+    font-family:'Bebas Neue';
+    color: var(--gold);
+    font-size: 20px;
+    display:block;
+  }
+  .step .name{
+    font-family:'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    color: var(--bone-dim);
+    text-transform:uppercase;
+    display:block;
+    margin-top: 4px;
+    line-height:1.3;
+  }
+
+  form{
+    width: 100%;
+    max-width: 440px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 32px 28px 28px;
+    position:relative;
+  }
+  form::before{
+    content:"RSVP";
+    position:absolute;
+    top:-13px; left:24px;
+    background: var(--black);
+    padding: 0 10px;
+    font-family:'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold);
+  }
+  .field{ margin-bottom: 18px; }
+  label{
+    display:block;
+    font-family:'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    margin-bottom: 7px;
+  }
+  input, select{
+    width:100%;
+    background: var(--black);
+    border: 1px solid var(--line);
+    color: var(--bone);
+    font-family:'Barlow', sans-serif;
+    font-size: 15px;
+    padding: 11px 12px;
+    outline:none;
+    transition: border-color .15s ease;
+  }
+  input:focus, select:focus{ border-color: var(--gold); }
+  input::placeholder{ color: #55503f; }
+
+  button{
+    width:100%;
+    margin-top: 6px;
+    padding: 14px;
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+    border: none;
+    color: #1b1400;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor:pointer;
+    transition: filter .15s ease, transform .1s ease;
+  }
+  button:hover{ filter: brightness(1.08); }
+  button:active{ transform: translateY(1px); }
+  button:focus-visible{ outline: 2px solid var(--bone); outline-offset: 2px; }
+
+  .pay-cta{
+    display:inline-block;
+    margin-top: 22px;
+    padding: 14px 28px;
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+    color: #1b1400;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: filter .15s ease;
+  }
+  .pay-cta:hover{ filter: brightness(1.08); }
+  .pay-note{
+    font-family:'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--bone-dim);
+    margin-top: 10px;
+  }
+
+  .fine-print{
+    max-width: 440px;
+    text-align:center;
+    color: var(--bone-dim);
+    font-family:'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-top: 18px;
+    line-height:1.6;
+  }
+
+  #confirm{
+    display:none;
+    max-width: 440px;
+    text-align:center;
+    padding: 30px 10px;
+  }
+  #confirm.show{ display:block; }
+  #confirm .num{
+    font-family:'Bebas Neue';
+    font-size: 42px;
+    color: var(--gold-bright);
+    letter-spacing:2px;
+  }
+  #confirm p{
+    color: var(--bone-dim);
+    font-size: 14px;
+    margin-top: 10px;
+    line-height:1.6;
+  }
+
+  .footer-motto{
+    margin-top: 50px;
+    font-family:'Bebas Neue';
+    letter-spacing: 3px;
+    color: var(--bone-dim);
+    font-size: 14px;
+    text-align:center;
+  }
+  .footer-motto span{ color: var(--gold); }
+
+  @media (max-width: 640px){
+    .steps{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="eyebrow-row">
+    <div class="badge">₿</div>
+    <span class="rank">BITCOIN ARMY</span>
+  </div>
+
+  <h1 class="brand">BUILD THE FUTURE.<br><span>OWN YOUR FREEDOM.</span></h1>
+  <p class="tagline">Discipline · Knowledge · Strategy · Freedom · Wealth</p>
+
+  <div class="divider"></div>
+
+  <div class="headline-card">
+    <h2>We're looking for a few good men and women</h2>
+    <div class="program">10 Step Program to On-Chain Wealth</div>
+    <p>A 4-week program dedicated to building <strong>generational wealth</strong> using on-chain products and revocable trust structures. No banks. No borders. No limits.</p>
+  </div>
+
+  <div class="class-date">
+    <div class="label">Date</div>
+    <div class="value">TBD</div>
+    <div class="sub">RSVP now to be notified the moment the date is locked in — spaces are limited.</div>
+  </div>
+
+  <div class="steps">
+    <div class="step"><span class="num">1</span><span class="name">Foundation Mindset</span></div>
+    <div class="step"><span class="num">2</span><span class="name">Self Custody</span></div>
+    <div class="step"><span class="num">3</span><span class="name">Bitcoin Layer 2</span></div>
+    <div class="step"><span class="num">4</span><span class="name">On-Chain Credit</span></div>
+    <div class="step"><span class="num">5</span><span class="name">Yield & Income</span></div>
+    <div class="step"><span class="num">6</span><span class="name">Asset Tokenization</span></div>
+    <div class="step"><span class="num">7</span><span class="name">Trust Structures</span></div>
+    <div class="step"><span class="num">8</span><span class="name">Wealth Protection</span></div>
+    <div class="step"><span class="num">9</span><span class="name">AI Agentic Automation</span></div>
+    <div class="step"><span class="num">10</span><span class="name">Legacy & Generational Transfer</span></div>
+  </div>
+
+  <form id="rsvpForm" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="cbde23f6-f617-4b16-953f-7b0aab0e9f58">
+    <input type="hidden" name="subject" value="New RSVP — 10 Step Program to On-Chain Wealth (Class Date TBD)">
+    <input type="hidden" name="from_name" value="Bitcoin Army RSVP">
+
+    <div class="field">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@email.com" required>
+    </div>
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" placeholder="(___) ___-____" required>
+    </div>
+    <div class="field">
+      <label for="format">Attendance Format</label>
+      <select id="format" name="format" required>
+        <option value="" disabled selected>Select one</option>
+        <option value="In-person (Chicago)">In-person (Chicago)</option>
+        <option value="Online/virtual">Online / virtual</option>
+        <option value="Either works">Either works</option>
+      </select>
+    </div>
+
+    <button type="submit">Reserve My Spot</button>
+  </form>
+
+  <div id="confirm">
+    <div class="num">YOU'RE IN.</div>
+    <p>Your name is on the roster. We'll email you the confirmed class date and time the moment it's locked in.<br><br>The Bitcoin Army builds. The Bitcoin Army wins.</p>
+    <a class="pay-cta" href="payment.html">Secure My Seat — Pay Now →</a>
+    <p class="pay-note">Card, Chime (10% off), or crypto (15% off) — spaces lock in on payment, not RSVP alone.</p>
+  </div>
+
+  <p class="fine-print">Spaces are limited to keep the group sharp and interactive.<br>Build Freedom. Build Wealth. Build Legacy.</p>
+
+  <div class="footer-motto">★ THE BITCOIN ARMY BUILDS. <span>THE BITCOIN ARMY WINS.</span> ★</div>
+
+<script>
+  const form = document.getElementById('rsvpForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch(form.action, { method: 'POST', body: data, headers: {'Accept':'application/json'} })
+      .then(res => res.json())
+      .then(() => {
+        form.style.display = 'none';
+        document.getElementById('confirm').classList.add('show');
+      })
+      .catch(() => {
+        alert('Something went wrong submitting your RSVP. Please try again or reach out directly.');
+      });
+  });
+</script>
+
+</body>
+</html>
